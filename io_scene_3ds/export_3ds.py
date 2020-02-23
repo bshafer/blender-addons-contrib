@@ -1024,9 +1024,9 @@ def save(operator,
     depsgraph = context.evaluated_depsgraph_get()
 
     if use_selection:
-        objects = (ob for ob in scene.objects if ob.is_visible(scene) and ob.select)
+        objects = (ob for ob in scene.objects if ob.visible_get() and ob.select_get())
     else:
-        objects = (ob for ob in scene.objects if ob.is_visible(scene))
+        objects = (ob for ob in scene.objects if ob.visible_get())
 
     for ob in objects:
         # get derived objects
